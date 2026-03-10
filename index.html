@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Keck Medical Spanish Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Easy-access Medical Spanish resources for USC Keck medical students: self-study, course-aligned content, office hours, and more."
+  />
+
+  <style>
+    /* ---------- GLOBAL STYLES ---------- */
+    :root {
+      --usc-cardinal: #990000;
+      --usc-gold: #ffcc00;
+      --usc-cardinal-dark: #6f0000;
+      --bg-light: #f7f7f8;
+      --text-main: #222222;
+      --text-muted: #555555;
+      --border-soft: #e2e2e5;
+      --accent-soft: #fff7d6;
+      --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.07);
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      color: var(--text-main);
+      background: var(--bg-light);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--usc-cardinal);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* ---------- NAVBAR ---------- */
+    header {
+      background: white;
+      border-bottom: 1px solid var(--border-soft);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(
+        135deg,
+        var(--usc-cardinal),
+        var(--usc-cardinal-dark)
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff7e6;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .site-title {
+      font-weight: 650;
+      font-size: 1rem;
+    }
+
+    .site-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      padding: 0.3rem 0.7rem;
+      border-radius: var(--radius-pill);
+      transition: background 0.2s ease, color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      background: var(--usc-cardinal);
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-cta {
+      background: var(--usc-gold);
+      color: #271800 !important;
+      font-weight: 600;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      padding: 2.5rem 0 1.5rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: var(--radius-pill);
+      background: var(--accent-soft);
+      border: 1px solid #ffe89a;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--usc-cardinal-dark);
+      margin-bottom: 0.9rem;
+    }
+
+    .eyebrow span {
+      font-size: 0.9rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 3vw, 2.7rem);
+      line-height: 1.15;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-highlight {
+      color: var(--usc-cardinal);
+      font-weight: 750;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      max-width: 36rem;
+      font-size: 0.98rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .badge {
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-soft);
+      background: white;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.16s ease, box-shadow 0.16s ease,
+        background 0.16s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(
+        135deg,
+        var(--usc-cardinal),
+        var(--usc-cardinal-dark)
+      );
+      color: white;
+      box-shadow: 0 10px 18px rgba(153, 0, 0, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 13px 22px rgba(153, 0, 0, 0.4);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background: white;
+      border: 1px solid var(--border-soft);
+      color: var(--text-main);
+    }
+
+    .btn-secondary:hover {
+      background: #f0f0f3;
+      text-decoration: none;
+    }
+
+    .hero-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 1.2rem 1rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-soft);
+    }
+
+    .hero-card-title {
+      font-size: 0.9rem;
+      font-weight: 650;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-steps {
+      display: grid;
+      gap: 0.7rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.5rem;
+      align-items: flex-start;
+    }
+
+    .hero-step-number {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      border: 1px solid #ffd867;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--usc-cardinal-dark);
+      margin-top: 2px;
+    }
+
+    .hero-step strong {
+      display: block;
+      font-weight: 650;
+    }
+
+    /* ---------- SECTION BASE ---------- */
+    section {
+      padding: 1.5rem 0 0.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 650;
+    }
+
+    .section-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      max-width: 28rem;
+    }
+
+    /* ---------- 2-COLUMN INFO ---------- */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.4fr);
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+      font-size: 0.9rem;
+    }
+
+    .card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .pill-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.45rem;
+    }
+
+    .pill-list li {
+      font-size: 0.76rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-pill);
+      background: #f2f2f7;
+      color: var(--text-muted);
+    }
+
+    ul {
+      margin-left: 1.1rem;
+      margin-top: 0.35rem;
+    }
+
+    ul li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* ---------- RESOURCE LIBRARY ---------- */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.7rem;
+      font-size: 0.78rem;
+    }
+
+    .filter-btn {
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-soft);
+      background: white;
+      cursor: pointer;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      transition: background 0.15s ease, color 0.15s ease,
+        border-color 0.15s ease;
+    }
+
+    .filter-btn.active {
+      background: var(--usc-cardinal);
+      color: white;
+      border-color: var(--usc-cardinal-dark);
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .resource-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 0.7rem 0.7rem 0.8rem;
+      border: 1px solid var(--border-soft);
+      font-size: 0.82rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .resource-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--usc-cardinal);
+    }
+
+    .resource-title {
+      font-weight: 650;
+      font-size: 0.88rem;
+    }
+
+    .resource-desc {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .resource-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .resource-link {
+      margin-top: 0.3rem;
+      font-size: 0.8rem;
+    }
+
+    /* ---------- BOOKINGS & CONTACT ---------- */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 0.9rem;
+    }
+
+    form {
+      display: grid;
+      gap: 0.45rem;
+      font-size: 0.85rem;
+    }
+
+    label {
+      font-weight: 550;
+      font-size: 0.82rem;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.45rem 0.55rem;
+      font-size: 0.85rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-soft);
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      font-family: inherit;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--usc-cardinal);
+      box-shadow: 0 0 0 1px rgba(153, 0, 0, 0.15);
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .small-hint {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    .calendly-placeholder {
+      background: #fffdf5;
+      border-radius: var(--radius-lg);
+      padding: 0.8rem;
+      border: 1px dashed #e2c67e;
+      font-size: 0.82rem;
+    }
+
+    .calendly-placeholder code {
+      font-size: 0.75rem;
+      background: #fff8dd;
+      padding: 0.1rem 0.25rem;
+      border-radius: 4px;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      margin-top: auto;
+      padding: 1.5rem 0 1rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--border-soft);
+      padding-top: 0.8rem;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .resource-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .nav-links {
+        display: none; /* simple mobile: hide nav links */
+      }
+    }
+
+    @media (max-width: 640px) {
+      .resource-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- ---------- NAVBAR ---------- -->
+    <header>
+      <div class="container nav">
+        <div class="nav-left">
+          <div class="logo-circle">MS</div>
+          <div>
+            <div class="site-title">Keck Medical Spanish Hub</div>
+            <div class="site-subtitle">By and for USC med students</div>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="#for-keck">For Keck Students</a>
+          <a href="#self-study">Self-Study Paths</a>
+          <a href="#resources">Resource Library</a>
+          <a href="#bookings" class="nav-cta">Book / Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ---------- HERO ---------- -->
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div>
+            <div class="eyebrow">
+              <span>USC Keck • Medical Spanish</span>
+            </div>
+            <h1>
+              One simple home for
+              <span class="hero-highlight">Medical Spanish</span>
+              at Keck.
+            </h1>
+            <p>
+              A central, easy-access hub where USC medical students can find
+              curated Medical Spanish resources: aligned with your English
+              courses, designed for self-study, and ready to support future
+              classes and tutoring.
+            </p>
+
+            <div class="hero-badges">
+              <div class="badge">First- & second-year friendly</div>
+              <div class="badge">Language-concordant care focused</div>
+              <div class="badge">Built in a high-Hispanic-density city</div>
+            </div>
+
+            <div class="hero-actions">
+              <a href="#resources" class="btn btn-primary">
+                Start with the Resource Library →
+              </a>
+              <a href="#bookings" class="btn btn-secondary">
+                Book office hours / tutoring
+              </a>
+            </div>
+
+            <div class="hero-note">
+              Future vision: Open this hub to medical students beyond USC Keck
+              who care about Spanish and patient-centered, language-concordant
+              care.
+            </div>
+          </div>
+
+          <aside class="hero-card">
+            <div class="hero-card-title">
+              How to use this site in 30 seconds
+            </div>
+            <div class="hero-steps">
+              <div class="hero-step">
+                <div class="hero-step-number">1</div>
+                <div>
+                  <strong>Pick your starting point.</strong>
+                  Jump to <a href="#for-keck">“For Keck Students”</a> if you
+                  want resources aligned to ICM / courses, or
+                  <a href="#self-study">“Self-Study Paths”</a> if you just want
+                  a clear plan.
+                </div>
+              </div>
+              <div class="hero-step">
+                <div class="hero-step-number">2</div>
+                <div>
+                  <strong>Use the filters.</strong>
+                  In the <a href="#resources">Resource Library</a>, filter by
+                  level (Beginner / Intermediate), skill (vocabulary, phrases,
+                  listening), or theme (physical exam, OB/GYN, derm, etc.).
+                </div>
+              </div>
+              <div class="hero-step">
+                <div class="hero-step-number">3</div>
+                <div>
+                  <strong>Get support if you want it.</strong>
+                  Use the
+                  <a href="#bookings">office hours, tutoring, or ICM hotline
+                    forms</a>
+                  to reach out for live help.
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ---------- FOR KECK STUDENTS ---------- -->
+      <section id="for-keck">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">For USC Keck Medical Students</h2>
+              <p class="section-subtitle">
+                Resources organized around what you’re actually doing in class:
+                ICM, systems blocks, clinical skills, and early patient
+                encounters.
+              </p>
+            </div>
+          </div>
+
+          <div class="two-col">
+            <div class="card">
+              <h3>Aligned with ICM & core courses</h3>
+              <p>
+                This hub is designed to sit alongside your English curriculum,
+                not compete with it. The vision is to match Medical Spanish
+                resources to:
+              </p>
+              <ul>
+                <li>ICM history-taking & physical exam sessions</li>
+                <li>Systems-based blocks (e.g., cardio, derm, OB/GYN)</li>
+                <li>Early patient encounters and community clinics</li>
+              </ul>
+              <p style="margin-top: 0.35rem">
+                As the project grows, sections can be added for each block:
+                <em>“This week in ICM: try these 5 Spanish phrases with
+                  patients.”</em>
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Why Medical Spanish matters at Keck</h3>
+              <p>
+                Keck students train in a region with a large Spanish-speaking
+                population. Language-concordant care:
+              </p>
+              <ul>
+                <li>Improves trust and adherence</li>
+                <li>Reduces errors when interpreters are unavailable</li>
+                <li>Honors patients’ dignity and lived experiences</li>
+              </ul>
+              <p style="margin-top: 0.35rem">
+                This site exists to help you move from
+                <em>“I wish I knew more Spanish”</em> to
+                <em>“I have concrete phrases, scripts, and practice tools to
+                  actually use.”</em>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- SELF-STUDY PATHS ---------- -->
+      <section id="self-study">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Self-Study Paths</h2>
+              <p class="section-subtitle">
+                Whether you’re brand-new to Spanish or already conversational,
+                start with a simple track and build from there.
+              </p>
+            </div>
+          </div>
+
+          <div class="two-col">
+            <div class="card">
+              <h3>Track A: “I know almost no Spanish”</h3>
+              <p>
+                Focus: survival phrases and high-yield clinical language you
+                can actually use during pre-clinical years.
+              </p>
+              <ul>
+                <li>Week 1–2: Greetings, introductions, explaining your role</li>
+                <li>
+                  Week 3–4: Chief complaint questions (pain, fever, duration)
+                </li>
+                <li>
+                  Week 5–6: Basic review of systems & social history questions
+                </li>
+              </ul>
+              <p style="margin-top: 0.35rem">
+                Suggested tools:
+              </p>
+              <ul>
+                <li>Printable phrase sheets (PDF) for each week</li>
+                <li>
+                  Short audio clips to mimic and repeat (1–3 minutes each)
+                </li>
+                <li>Simple Quizlet / Anki decks focused on phrases, not rules</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h3>Track B: “I speak some Spanish already”</h3>
+              <p>
+                Focus: tightening medical vocabulary, sounding more natural, and
+                building exam-specific scripts.
+              </p>
+              <ul>
+                <li>Refine patient interview scripts for common complaints</li>
+                <li>Specialty mini-modules (OB/GYN, derm, anemia, etc.)</li>
+                <li>
+                  Practice with standardized “mini-conversations” (SP style)
+                </li>
+              </ul>
+              <p style="margin-top: 0.35rem">
+                Suggested tools:
+              </p>
+              <ul>
+                <li>Case-based dialogues to read or role-play</li>
+                <li>
+                  Listening practice with podcasts / YouTube (curated links)
+                </li>
+                <li>Advanced phrase banks for nuance and empathy</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- RESOURCE LIBRARY ---------- -->
+      <section id="resources">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Resource Library</h2>
+              <p class="section-subtitle">
+                Filterable, skimmable resources: PDFs, playlists, podcasts,
+                decks, and links. Replace the placeholders with your real
+                materials over time.
+              </p>
+            </div>
+          </div>
+
+          <!-- FILTER BUTTONS -->
+          <div class="filters">
+            <button class="filter-btn active" data-filter="all">
+              All resources
+            </button>
+            <button class="filter-btn" data-filter="beginner">
+              Beginner
+            </button>
+            <button class="filter-btn" data-filter="intermediate">
+              Intermediate
+            </button>
+            <button class="filter-btn" data-filter="phrases">
+              Phrases & Scripts
+            </button>
+            <button class="filter-btn" data-filter="listening">
+              Audio / Listening
+            </button>
+            <button class="filter-btn" data-filter="exam">
+              Physical Exam
+            </button>
+            <button class="filter-btn" data-filter="obgyn">
+              OB/GYN
+            </button>
+            <button class="filter-btn" data-filter="derm">
+              Derm
+            </button>
+          </div>
+
+          <!-- RESOURCE CARDS -->
+          <div class="resource-grid">
+            <!-- Example resource 1 -->
+            <article
+              class="resource-card"
+              data-tags="beginner phrases"
+            >
+              <div class="resource-tag">PDF • Beginner</div>
+              <div class="resource-title">
+                Week 1: Basic Greeting & Introduction Phrases
+              </div>
+              <div class="resource-desc">
+                Simple, high-yield phrases for introducing yourself, greeting
+                the patient, and explaining your role as a student.
+              </div>
+              <div class="resource-meta">
+                Suggested use: print & keep in your white coat.
+              </div>
+              <div class="resource-link">
+                <!-- TODO: replace # with your real PDF link later -->
+                <a href="#" target="_blank">Download PDF (placeholder)</a>
+              </div>
+            </article>
+
+            <!-- Example resource 2 -->
+            <article
+              class="resource-card"
+              data-tags="beginner exam"
+            >
+              <div class="resource-tag">PDF • Physical Exam</div>
+              <div class="resource-title">
+                Spanish Commands for Basic Physical Exam
+              </div>
+              <div class="resource-desc">
+                Short imperative phrases for common maneuvers: “Breathe
+                deeply,” “Open your mouth,” “Lift your arm,” etc.
+              </div>
+              <div class="resource-meta">
+                Level: Beginner / Early ICM.
+              </div>
+              <div class="resource-link">
+                <a href="#" target="_blank">Download PDF (placeholder)</a>
+              </div>
+            </article>
+
+            <!-- Example resource 3 -->
+            <article
+              class="resource-card"
+              data-tags="intermediate obgyn phrases"
+            >
+              <div class="resource-tag">PDF • OB/GYN</div>
+              <div class="resource-title">
+                OB/GYN Visit Script (Physician + Patient)
+              </div>
+              <div class="resource-desc">
+                Side-by-side script for an OB/GYN visit, with English on one
+                side and Spanish on the other. Great for SP practice.
+              </div>
+              <div class="resource-meta">
+                Level: Intermediate; use in SP sessions or role play.
+              </div>
+              <div class="resource-link">
+                <a href="#" target="_blank">Download PDF (placeholder)</a>
+              </div>
+            </article>
+
+            <!-- Example resource 4 -->
+            <article
+              class="resource-card"
+              data-tags="intermediate listening"
+            >
+              <div class="resource-tag">Playlist • Listening</div>
+              <div class="resource-title">
+                Short Audio Clips: Patient Interview Snippets
+              </div>
+              <div class="resource-desc">
+                1–3 minute dialogues focused on chief complaints and history
+                taking, with transcripts.
+              </div>
+              <div class="resource-meta">
+                Hosted on: YouTube / private audio folder (your choice).
+              </div>
+              <div class="resource-link">
+                <a href="#" target="_blank">Open playlist (placeholder)</a>
+              </div>
+            </article>
+
+            <!-- Example resource 5 -->
+            <article
+              class="resource-card"
+              data-tags="beginner phrases listening"
+            >
+              <div class="resource-tag">Deck • Phrases</div>
+              <div class="resource-title">
+                Anki / Quizlet: High-Yield Clinic Phrases
+              </div>
+              <div class="resource-desc">
+                Flashcards focused on complete sentences that can be used with
+                real patients, not isolated vocabulary.
+              </div>
+              <div class="resource-meta">
+                Works well alongside your weekly ICM sessions.
+              </div>
+              <div class="resource-link">
+                <a href="#" target="_blank">Open deck (placeholder)</a>
+              </div>
+            </article>
+
+            <!-- Example resource 6 -->
+            <article
+              class="resource-card"
+              data-tags="intermediate derm phrases"
+            >
+              <div class="resource-tag">PDF • Dermatology</div>
+              <div class="resource-title">
+                Dermatology Visit: Rash History Script
+              </div>
+              <div class="resource-desc">
+                Structured questions for rash history (onset, location,
+                quality, exposures) in Spanish, plus key patient responses.
+              </div>
+              <div class="resource-meta">
+                Level: Intermediate; pair with derm block.
+              </div>
+              <div class="resource-link">
+                <a href="#" target="_blank">Download PDF (placeholder)</a>
+              </div>
+            </article>
+          </div>
+
+          <p class="small-hint">
+            <strong>How you’ll use this later:</strong> each time you create a
+            new PDF, Google Drive folder, podcast episode, or deck, just come
+            back and replace a <em>(placeholder)</em> link with the real one
+            and/or duplicate a card.
+          </p>
+        </div>
+      </section>
+
+      <!-- ---------- BOOKINGS & CONTACT ---------- -->
+      <section id="bookings">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">
+                Office Hours, Tutoring, & “ICM Hotline”
+              </h2>
+              <p class="section-subtitle">
+                Use this area to let students book time with you, request help
+                with specific cases, or ask questions about how to integrate
+                Spanish into their clinical skills.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid-3">
+            <!-- Calendly / Booking card -->
+            <div class="card">
+              <h3>Book Medical Spanish Office Hours</h3>
+              <p class="small-hint">
+                This is where you’ll embed Calendly (or a similar tool) once
+                you have it set up.
+              </p>
+              <div class="calendly-placeholder" style="margin-top: 0.5rem">
+                <strong>Step 1:</strong> Create a free Calendly account and set
+                up an event type, e.g. <em>“15-minute Medical Spanish office
+                  hours.”</em><br /><br />
+                <strong>Step 2:</strong> Grab the embed code from Calendly and
+                replace this placeholder with it:<br /><br />
+                <code>&lt;!-- Replace this box with your Calendly embed --&gt;
+&lt;iframe src="https://calendly.com/your-username/med-spanish"
+style="width: 100%; height: 500px;" frameborder="0"&gt;&lt;/iframe&gt;</code>
+              </div>
+            </div>
+
+            <!-- Medical Spanish ICM Hotline -->
+            <div class="card">
+              <h3>Medical Spanish ICM Hotline</h3>
+              <p class="small-hint">
+                Use this form for quick questions: phrasing, scripts for an
+                upcoming SP encounter, or help translating a specific patient
+                interaction (de-identified, of course).
+              </p>
+
+              <!-- TODO: integrate with Formspree or another form backend later -->
+              <form
+                action="#"
+                method="post"
+              >
+                <label for="hotline-name">Name</label>
+                <input
+                  type="text"
+                  id="hotline-name"
+                  name="name"
+                  placeholder="Your name"
+                  required
+                />
+
+                <label for="hotline-email">Email</label>
+                <input
+                  type="email"
+                  id="hotline-email"
+                  name="email"
+                  placeholder="you@med.usc.edu"
+                  required
+                />
+
+                <label for="hotline-topic">Brief topic</label>
+                <input
+                  type="text"
+                  id="hotline-topic"
+                  name="topic"
+                  placeholder="e.g. SP abdominal pain case tomorrow"
+                />
+
+                <label for="hotline-message">What do you need help with?</label>
+                <textarea
+                  id="hotline-message"
+                  name="message"
+                  placeholder="Share the English phrase or situation and what you're hoping to say in Spanish (no patient identifiers)."
+                  required
+                ></textarea>
+
+                <button type="submit" class="btn btn-primary">
+                  Send hotline request
+                </button>
+
+                <div class="small-hint" style="margin-top: 0.4rem">
+                  Later, we can hook this form to a service like Formspree or
+                  your USC email so you actually receive the messages.
+                </div>
+              </form>
+            </div>
+
+            <!-- General Contact / About -->
+            <div class="card">
+              <h3>General Contact & About</h3>
+              <p class="small-hint">
+                Use this form for general questions, collaboration ideas, or
+                interest in helping build the Medical Spanish curriculum.
+              </p>
+
+              <form
+                action="#"
+                method="post"
+              >
+                <label for="contact-name">Name</label>
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  placeholder="Your name"
+                  required
+                />
+
+                <label for="contact-email">Email</label>
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  placeholder="you@med.usc.edu"
+                  required
+                />
+
+                <label for="contact-role">Role</label>
+                <select id="contact-role" name="role">
+                  <option value="">Select an option</option>
+                  <option value="m1">USC Keck M1</option>
+                  <option value="m2">USC Keck M2</option>
+                  <option value="other-student">Other med student</option>
+                  <option value="faculty">Faculty / staff</option>
+                  <option value="other">Other</option>
+                </select>
+
+                <label for="contact-message">Message</label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  placeholder="Share your question, idea, or how you'd like to be involved."
+                  required
+                ></textarea>
+
+                <button type="submit" class="btn btn-secondary">
+                  Send message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ---------- FOOTER ---------- -->
+    <footer>
+      <div class="container footer-inner">
+        <div>
+          ©
+          <span id="year"></span>
+          Keck Medical Spanish Hub. Built by a USC Keck student passionate about
+          language-concordant care.
+        </div>
+        <div>
+          Future phase: open-access version for other medical schools &amp;
+          regions.
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ---------- SIMPLE JS FOR FILTERING & YEAR ---------- -->
+  <script>
+    // Dynamic year in footer
+    document.getElementById("year").textContent =
+      new Date().getFullYear().toString();
+
+    // Simple resource filter
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const resourceCards = document.querySelectorAll(".resource-card");
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter");
+
+        filterButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        resourceCards.forEach((card) => {
+          const tags = card.getAttribute("data-tags") || "";
+          if (filter === "all" || tags.includes(filter)) {
+            card.style.display = "flex";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
